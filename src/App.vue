@@ -1,49 +1,48 @@
 <template>
   <div id="app">
-    <x-header :right-options="{showMore: true}" @on-click-more="showMenus = true">with more menu</x-header>
+    <myhead></myhead>
+
+
     <router-view></router-view>
-    <tabbar>
-      <tabbar-item>
-        <img slot="icon" src="./assets/demo/icon_nav_button.png">
-        <span slot="label">Wechat</span>
-      </tabbar-item>
-      <tabbar-item show-dot>
-        <img slot="icon" src="./assets/demo/icon_nav_msg.png">
-        <span slot="label">Message</span>
-      </tabbar-item>
-      <tabbar-item selected link="/component/demo">
-        <img slot="icon" src="./assets/demo/icon_nav_article.png">
-        <span slot="label">Explore</span>
-      </tabbar-item>
-      <tabbar-item badge="2">
-        <img slot="icon" src="./assets/demo/icon_nav_cell.png">
-        <span slot="label">News</span>
-      </tabbar-item>
-    </tabbar>
-    <div v-transfer-dom>
-      <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
-    </div>
   </div>
 
 </template>
 
 <script>
-  import { XHeader, Actionsheet, TransferDom, Tabbar, TabbarItem, Group, Cell } from 'vux'
+  import myhead from './components/myheader'
+  import { Group, Cell } from 'vux'
+  const baseList = [{
+    url: 'javascript:',
+    img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
+    title: '送你一朵fua'
+  }, {
+    url: 'javascript:',
+    img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg',
+    title: '送你一辆车'
+  }, {
+    url: 'javascript:',
+    img: 'https://static.vux.li/demo/5.jpg', // 404
+    title: '送你一次旅行',
+    fallbackImg: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg'
+  }]
+  const urlList = baseList.map((item, index) => ({
+    url: 'http://m.baidu.com',
+    img: item.img,
+    fallbackImg: item.fallbackImg,
+    title: `(可点击)${item.title}`
+  }))
   export default {
-    directives: {
-      TransferDom
-    },
     name: 'app',
     components: {
-      XHeader,
-      Actionsheet,
-      Tabbar,
-      TabbarItem,
+      myhead,
       Group,
       Cell
     },
     data () {
       return {
+        demo06_index: 0,
+        demo06_list: urlList,
+        demo01_list: baseList,
         menus: {
           menu1: 'Take Photo',
           menu2: 'Choose from photos'
