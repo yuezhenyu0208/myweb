@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header :right-options="{showMore: true}" @on-click-more="showMenus = true">with more menu</x-header>
+    <x-header  :right-options="{showMore: true}" @on-click-more="showMenus = true">with more menu</x-header>
     <div v-transfer-dom>
       <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
     </div>

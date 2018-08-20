@@ -1,21 +1,21 @@
 <template>
   <div>
-    <tabbar>
-      <tabbar-item>
+    <tabbar v-transfer-dom style="position: fixed;" v-model='index'>
+      <tabbar-item link="/index" >
         <img slot="icon" src="../assets/demo/icon_nav_button.png">
-        <span slot="label">Wechat</span>
+        <span slot="label">首页</span>
       </tabbar-item>
-      <tabbar-item show-dot>
+      <tabbar-item >
         <img slot="icon" src="../assets/demo/icon_nav_msg.png">
-        <span slot="label">Message</span>
+        <span slot="label">分类</span>
       </tabbar-item>
-      <tabbar-item selected link="/component/demo">
+      <tabbar-item show-dot link="/hello">
         <img slot="icon" src="../assets/demo/icon_nav_article.png">
-        <span slot="label">Explore</span>
+        <span slot="label">消息</span>
       </tabbar-item>
-      <tabbar-item badge="2">
+      <tabbar-item badge="2" link="/mine">
         <img slot="icon" src="../assets/demo/icon_nav_cell.png">
-        <span slot="label">News</span>
+        <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
   </div>
@@ -38,7 +38,8 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello World!'
+      msg: 'Hello World!',
+      index: 1
     }
   }
 }
