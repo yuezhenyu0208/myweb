@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Index from '../pages/index'
 import Mine from '../pages/mine'
 import Home from '../pages/home'
+import Login from '../pages/mine/login'
 
 Vue.use(Router)
 export default new Router({
@@ -21,15 +22,16 @@ export default new Router({
         }, {
           path: '/mine',
           component: Mine
-        }, {
-          path: '/hello',
-          component: HelloWorld
         }
       ]
     }, {
       path: '/mine',
       name: 'Mine',
       component: Mine
+    }, {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }, {
       path: '/hello',
       name: 'HelloWorld',

@@ -1,10 +1,9 @@
 <template>
   <div id="app" style="height:100%;">
     <view-box ref="viewBox">
-      <keep-alive>
 
         <router-view></router-view>
-      </keep-alive>
+
 
     </view-box>
 
@@ -14,6 +13,7 @@
 
 <script>
   import { Group, Cell, ViewBox } from 'vux'
+
   export default {
     name: 'app',
     components: {

@@ -4,12 +4,14 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import App from './App'
 import router from './router/index'
-import myfoot from './components/foot'
+// import myfoot from './components/foot'
 import myhead from './components/myheader'
-import { TransferDom } from 'vux'
+import { TransferDom, XHeader, XButton } from 'vux'
 
+Vue.component('XHeader', XHeader)
+Vue.component('XButton', XButton)
 Vue.directive('transfer-dom', TransferDom)
-Vue.component('myfoot', myfoot)
+// Vue.component('myfoot', myfoot)
 Vue.component('myhead', myhead)
 /* import VueRouter from 'vue-router'
 import Home from './components/HelloFromVux'

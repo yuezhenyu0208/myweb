@@ -1,15 +1,15 @@
 <template>
 <div>
-  <blur :blur-amount=40 :url="url">
-    <p class="center"><img :src="url"></p>
-    <p align="center">岳振宇</p>
+  <blur :blur-amount=40 :url="url" >
+    <p class="center"><img :src="url" @click="goLink"></p>
+    <p align="center" @click="goLink">点击登录</p>
   </blur>
   <group label-width="5em" >
     <cell primary="content" title="个性签名" value="WeUI 是一套同微信原生视觉体验一致的基础样式库,由微信官方设计团队为微信内网页和微信小程序量身设计"></cell>
     <!--<cell title="flex-start" align-items="flex-start" value="long long long longlong longlong longlong longlong longlong longlong longlong longlong long"></cell>-->
   </group>
   <group >
-    <cell title='我的资料' is-link></cell>
+    <cell title='我的资料' is-link link="/index"></cell>
     <cell title='我的钱包' is-link></cell>
     <cell title='设置' is-link></cell>
     <!--<cell :title="'General'" is-link>
@@ -29,6 +29,13 @@
     data () {
       return {
         url: 'https://o3e85j0cv.qnssl.com/tulips-1083572__340.jpg'
+      }
+    },
+    methods: {
+      goLink: function () {
+        // self.location = '/#/login'
+        // window.location.href = '/#/login'
+        this.$router.push({path: '/login'})
       }
     }
   }
