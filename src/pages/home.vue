@@ -7,7 +7,7 @@
       <swiper loop height="100px" auto :list="demo06_list" :index="demo06_index" @on-index-change="demo06_onIndexChange"></swiper>
       <!--<p>current index: {{demo06_index}}</p>-->
       <grid :show-lr-borders="false">
-        <grid-item label='购买帐号' link="/hello">
+        <grid-item label='购买帐号' link="/buy-account">
           <img slot="icon" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534945714414&di=8f0735b912d94bde8cd9e79151883451&imgtype=0&src=http%3A%2F%2Fimg.yzcdn.cn%2Fupload_files%2F2014%2F12%2F31%2FFj9bgkAtudpEHyIBvw8kX_xLIB3A.jpg%2521580x580.jpg">
         </grid-item>
         <grid-item label='查询时长' link="/hello">
@@ -123,8 +123,11 @@
       getMore () {
         console.log('展示更多')
         this.$http.get('/blog').then(({data}) => {
-          this.list = data.data.list
-          console.log(data.data.list)
+          if (data.code === 100) {
+            this.list = data.data.list
+          } else {
+            alert(data.msg)
+          }
         })
         /* this.list.push({
           src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534757052800&di=cc23f70d03e8c7f797803908eb9412b7&imgtype=0&src=http%3A%2F%2Fask.qcloudimg.com%2Fhttp-save%2Fyehe-1148782%2Fqfwcb4xrqw.png',

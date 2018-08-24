@@ -40,7 +40,18 @@
           password: this.password
         }).then(({data}) => {
           if (data.code === 100) {
-            this.$router.push({path: '/index'})
+            // document.cookie = 'token=100'
+            this.$cookie.set('token', 100)
+            var redirect = this.$route.query.redirect
+            if (typeof redirect === 'undefined') {
+              this.$router.push({path: '/index'})
+            } else {
+              this.$router.push({path: redirect})
+            }
+            /* console.log(redirect)
+            console.log(typeof redirect === 'undefined')
+            console.log(redirect === null) */
+            //
           }
         })
       }

@@ -6,12 +6,13 @@ import Mine from '../pages/mine'
 import Home from '../pages/home'
 import Login from '../pages/mine/login'
 import Detail from '../pages/blog/detail'
+import Setting from '../pages/mine/setting'
+import BuyAccount from '../pages/shop/buy_account'
 
 Vue.use(Router)
 export default new Router({
   routes: [
-    {
-      path: '/',
+    {path: '/',
       redirect: '/index'
     }, {
       path: '/',
@@ -35,9 +36,13 @@ export default new Router({
         }
       ]
     }, {
-      path: '/mine',
-      name: 'Mine',
-      component: Mine
+      path: '/setting',
+      name: 'setting',
+      component: Setting,
+      meta: {
+        title: '设置',
+        requiresAuth: true
+      }
     }, {
       path: '/login',
       name: 'Login',
@@ -48,10 +53,23 @@ export default new Router({
     }, {
       path: '/hello',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      meta: {
+        title: '详情页'
+      }
     }, {
       path: '/blog/detail',
-      component: Detail
+      component: Detail,
+      meta: {
+        title: '详情页'
+      }
+    }, {
+      path: '/buy-account',
+      component: BuyAccount,
+      meta: {
+        title: '购买帐号',
+        requiresAuth: true
+      }
     }
   ]
 })
