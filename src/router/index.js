@@ -8,6 +8,8 @@ import Login from '../pages/mine/login'
 import Detail from '../pages/blog/detail'
 import Setting from '../pages/mine/setting'
 import BuyAccount from '../pages/shop/buy_account'
+import Shadowsock from '../pages/shadowsock/shadowsock_list'
+import shadowsockDetail from '../pages/shadowsock/detail'
 
 Vue.use(Router)
 export default new Router({
@@ -68,6 +70,20 @@ export default new Router({
       component: BuyAccount,
       meta: {
         title: '购买帐号',
+        requiresAuth: true
+      }
+    }, {
+      path: '/shadowsock',
+      component: Shadowsock,
+      meta: {
+        title: '帐号列表',
+        requiresAuth: true
+      }
+    }, {
+      path: '/shadowsock/detail',
+      component: shadowsockDetail,
+      meta: {
+        title: '帐号列表',
         requiresAuth: true
       }
     }

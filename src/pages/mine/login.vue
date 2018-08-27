@@ -44,7 +44,7 @@
             this.$cookie.set('token', 100)
             var redirect = this.$route.query.redirect
             if (typeof redirect === 'undefined') {
-              this.$router.push({path: '/index'})
+              this.$router.push({path: '/mine'})
             } else {
               this.$router.push({path: redirect})
             }

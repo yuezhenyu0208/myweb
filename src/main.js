@@ -5,7 +5,7 @@ import FastClick from 'fastclick'
 import App from './App'
 import router from './router/index'
 import myhead from './components/myheader'
-import { TransferDom, XHeader, XButton, cookie } from 'vux'
+import { TransferDom, XHeader, XButton, cookie, XInput, Group, Toast, ToastPlugin } from 'vux'
 import axios from 'axios'
 import querystring from 'querystring'
 import Qs from 'qs'
@@ -35,6 +35,10 @@ Vue.component('XButton', XButton)
 Vue.directive('transfer-dom', TransferDom)
 // Vue.component('myfoot', myfoot)
 Vue.component('myhead', myhead)
+Vue.component('XInput', XInput)
+Vue.component('Group', Group)
+Vue.component('Toast', Toast)
+Vue.use(ToastPlugin)
 /* import VueRouter from 'vue-router'
 import Home from './components/HelloFromVux'
 
