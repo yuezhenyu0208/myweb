@@ -10,6 +10,7 @@ import Setting from '../pages/mine/setting'
 import BuyAccount from '../pages/shop/buy_account'
 import Shadowsock from '../pages/shadowsock/shadowsock_list'
 import shadowsockDetail from '../pages/shadowsock/detail'
+import newshadow from '../pages/shadowsock/newshadow'
 
 Vue.use(Router)
 export default new Router({
@@ -83,7 +84,14 @@ export default new Router({
       path: '/shadowsock/detail',
       component: shadowsockDetail,
       meta: {
-        title: '帐号列表',
+        title: '帐号详情',
+        requiresAuth: true
+      }
+    }, {
+      path: '/shadowsock/newshadow',
+      component: newshadow,
+      meta: {
+        title: '新增帐号',
         requiresAuth: true
       }
     }

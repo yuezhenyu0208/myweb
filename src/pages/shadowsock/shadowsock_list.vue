@@ -1,7 +1,7 @@
 <template>
   <div>
-    <x-header>帐号列表<a slot="right">新增</a></x-header>
-    <panel :list="list" type="3" @on-click-item="detail"></panel>
+    <x-header>帐号列表<a slot="right"  @click="newshadow">新增</a></x-header>
+    <panel :list="list" type="3" @on-click-item="detail" ></panel>
   </div>
 </template>
 
@@ -39,6 +39,10 @@
       detail (item) {
         console.log(item.id)
         this.$router.push({path: '/shadowsock/detail', query: {id: item.id}})
+      },
+      newshadow () {
+        this.$router.push({path: '/shadowsock/newshadow'})
+        // console.log('gggggggg')
       }
     }
   }

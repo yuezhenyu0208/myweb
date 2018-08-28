@@ -1,6 +1,6 @@
 <template>
 <div>
-  <x-header>帐号详情<a slot="right"   @click="deleteShadow">删除</a></x-header>
+  <x-header>帐号详情<a slot="right">删除</a></x-header>
   <group label-width="4.5em" label-margin-right="2em" label-align="right">
 
     <x-input title="端口" placeholder="必填" v-model="port" value-align="right"></x-input>
@@ -17,40 +17,22 @@
     name: 'detail',
     data () {
       return {
-        port: 'a',
-        IP: 'a5',
-        password: 'a4',
-        method: 'a2'
+        port: '',
+        IP: '202.182.116.51',
+        password: '12345678a',
+        method: 'aes-256-cfb'
       }
     },
     components: {
     },
-    created: function () {
-      this.id = this.$route.query.id
-      this.$http.get('/shadowsock/' + this.id).then(({data}) => {
-        this.id = data.data.id
-        this.port = data.data.title
-        this.IP = data.data.ssIp
-        this.password = data.data.password
-        this.method = data.data.method
-      })
-    },
     methods: {
       save () {
         this.$http.post('/shadowsock', {
-          id: this.id,
           ssPort: this.port,
           ssIp: this.IP,
           password: this.password,
           method: this.method
         }).then(({data}) => {
-          if (data.code === 100) {
-            this.$vux.toast.text('成功', 'middle')
-          }
-        })
-      },
-      deleteShadow () {
-        this.$http.post('/shadowsock/' + this.id).then(({data}) => {
           if (data.code === 100) {
             this.$vux.toast.text('成功', 'middle')
           }

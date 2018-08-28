@@ -17,7 +17,7 @@
     },
     created: function () {
       this.cid = this.$route.query.cid
-      this.$http.get('/blog/' + this.cid).then(({data}) => {
+      this.$http.get('/blog/' + this.cid + '?s=`').then(({data}) => {
         this.content = data.data.content
       })
     }
