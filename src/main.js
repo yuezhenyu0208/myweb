@@ -9,8 +9,13 @@ import { TransferDom, XHeader, XButton, cookie, XInput, Group, Toast, ToastPlugi
 import axios from 'axios'
 import querystring from 'querystring'
 import Qs from 'qs'
+import '../static/js/jquery.min.js'
+// import '../static/js/Eleditor.min.js'
+// import '../static/js/webuploader.min.js'
 // 全局变量
 
+import initRichText from './initHTMLEditor'
+initRichText()
 var rootApi = process.env.API
 const $axios = axios.create({
   baseURL: rootApi,
@@ -25,7 +30,12 @@ const $axios = axios.create({
   }
 })
 // axios.defaults.withCredentials=true
-
+Vue.prototype.executeResult = function (data) {
+  if (data.code === 105) {
+    this.$cookie.remove('token')
+    this.$router.push({path: '/login'})
+  }
+}
 Vue.prototype.$http = $axios
 Vue.prototype.$cookie = cookie
 

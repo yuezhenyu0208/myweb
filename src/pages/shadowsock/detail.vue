@@ -7,7 +7,9 @@
     <x-input title="IP" placeholder="必填" v-model="IP"></x-input>
     <x-input title="密码" placeholder="必填" v-model="password"></x-input>
     <x-input title="加密方式" placeholder="必填" v-model="method"></x-input>
+    <x-input title="个人id" v-model="uid"></x-input>
   </group>
+  <br>
   <x-button type="primary"  @click.native="save()">保存</x-button><br/>
 </div>
 </template>
@@ -17,10 +19,11 @@
     name: 'detail',
     data () {
       return {
-        port: 'a',
-        IP: 'a5',
-        password: 'a4',
-        method: 'a2'
+        port: '',
+        IP: '',
+        password: '',
+        method: '',
+        uid: ''
       }
     },
     components: {
@@ -42,7 +45,8 @@
           ssPort: this.port,
           ssIp: this.IP,
           password: this.password,
-          method: this.method
+          method: this.method,
+          uid: this.uid
         }).then(({data}) => {
           if (data.code === 100) {
             this.$vux.toast.text('成功', 'middle')

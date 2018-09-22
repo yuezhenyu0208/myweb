@@ -1,6 +1,6 @@
 <template>
 <div>
-  <x-header>文章详情<a slot="right">分享</a></x-header>
+  <x-header>文章详情<a slot="right" >分享</a><router-link to="/blog/blog_edit">buyout</router-link></x-header>
   <br/>
   <p v-html="content"></p>
 </div>
@@ -17,7 +17,7 @@
     },
     created: function () {
       this.cid = this.$route.query.cid
-      this.$http.get('/blog/' + this.cid + '?s=`').then(({data}) => {
+      this.$http.get('/blog/' + this.cid).then(({data}) => {
         this.content = data.data.content
       })
     }

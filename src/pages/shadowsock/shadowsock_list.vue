@@ -32,7 +32,7 @@
           if (data.code === 100) {
             this.list = data.data.list
           } else {
-            alert(data.msg)
+            this.executeResult(data)
           }
         })
       },

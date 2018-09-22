@@ -6,6 +6,7 @@ import Mine from '../pages/mine'
 import Home from '../pages/home'
 import Login from '../pages/mine/login'
 import Detail from '../pages/blog/detail'
+import Blogedit from '../pages/blog/blog_edit'
 import Setting from '../pages/mine/setting'
 import BuyAccount from '../pages/shop/buy_account'
 import Shadowsock from '../pages/shadowsock/shadowsock_list'
@@ -65,6 +66,12 @@ export default new Router({
       component: Detail,
       meta: {
         title: '详情页'
+      }
+    }, {
+      path: '/blog/blog_edit',
+      component: Blogedit,
+      meta: {
+        title: '文章编辑'
       }
     }, {
       path: '/buy-account',
